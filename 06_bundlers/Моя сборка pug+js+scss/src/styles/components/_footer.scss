@@ -1,0 +1,9 @@
+@import "vars";
+@import "mixins";
+
+.footer {
+  width: 100%;
+  min-height: 300px;
+  background-color: $bc-primary;
+}
+

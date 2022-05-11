@@ -1,0 +1,32 @@
+- 
+  var list = [
+    {
+      title:'Заголовок 1', 
+      descr:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quis! Eum necessitatibus fuga esse quasi, expedita eaque quo iusto officiis culpa cupiditate ea totam voluptate quae, sapiente eius libero est!'
+    }, 
+    {
+      title:'Заголовок 2', 
+      descr:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quis! Eum necessitatibus fuga esse quasi, expedita eaque quo iusto officiis culpa cupiditate ea totam voluptate quae, sapiente eius libero est!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quis! Eum necessitatibus fuga esse quasi, expedita eaque quo iusto officiis culpa cupiditate ea totam voluptate quae, sapiente eius libero est!'
+    },
+    {
+      title:'Заголовок 3', 
+      descr:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quis! Eum necessitatibus fuga esse quasi, expedita eaque quo iusto officiis culpa cupiditate ea totam voluptate quae, sapiente eius libero est!'
+    }, 
+    {
+      title:'Заголовок 4', 
+      descr:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quis! Eum necessitatibus fuga esse quasi, expedita eaque quo iusto officiis culpa cupiditate ea totam voluptate quae, sapiente eius libero est!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quis! Eum necessitatibus fuga esse quasi, expedita eaque quo iusto officiis culpa cupiditate ea totam voluptate quae, sapiente eius libero est!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quis! Eum necessitatibus fuga esse quasi, expedita eaque quo iusto officiis culpa cupiditate ea totam voluptate quae, sapiente eius libero est!'
+    }
+  ];
+
+main.main 
+  section.hero  
+    .container 
+      ul.hero__list.d-flex
+        each el in list
+          li.hero__item  
+            h2.hero__item-title= el.title 
+            p.hero__item-descr= el.descr 
+
+
+            
+            
