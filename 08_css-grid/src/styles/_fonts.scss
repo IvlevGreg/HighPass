@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Regular"), local("Roboto regular"), local("Roboto-Regular"),
+    url("../fonts/Roboto-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Bold"), local("Roboto bold"), local("Roboto-Bold"),
+    url("../fonts/Roboto-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TTFirsNeue";
+  src: local("TTFirsNeue Regular"), local("TTFirsNeue regular"), local("TTFirsNeue-Regular"),
+    url("../fonts/TTFirsNeue-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TTFirsNeue";
+  src: local("TTFirsNeue Bold"), local("TTFirsNeue bold"), local("TTFirsNeue-Bold"),
+    url("../fonts/TTFirsNeue-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TTFirsNeue";
+  src: local("TTFirsNeue Medium"), local("TTFirsNeue medium"), local("TTFirsNeue-Medium"),
+    url("../fonts/TTFirsNeue-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

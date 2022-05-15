@@ -1,0 +1,88 @@
+@import "vars";
+@import "mixins";
+
+.form {
+  &_light {
+    color: $tc-secondary;
+  }
+
+  &__label {
+    position: relative;
+    width: 100%;
+  }
+
+  &__input {
+    padding: 12px 23px;
+    height: 40px;
+    margin-bottom: 20px;
+    width: 100%;
+    @include font(14px, 16.41px);
+    color: inherit;
+    border: none;
+    background-color: $bc-primary;
+    @include media($sm) {
+      height: 50px;
+    }
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+    &:hover:not(:active):not(:focus) {
+      cursor: pointer;
+      color: $ui-base;
+    }
+    &:focus:not(:active) {
+      box-shadow: 0px 0px 0px 1px $ui-base inset;
+      outline: none;
+    }
+    &:active {
+      outline: none;
+      box-shadow: 0px 0px 0px 1px $ui-base inset;
+    }
+  }
+
+  &__input_dark {
+    background-color: $bc-secondary;
+    max-width: 342px;
+
+    @include media($lg) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__textarea {
+    padding: 12px 23px;
+    height: 150px;
+    margin-bottom: 15px;
+    width: 100%;
+    background-color: $bc-primary;
+    @include font(14px, 16.41px);
+    color: inherit;
+    border: none;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+    &:hover:not(:active):not(:focus) {
+      cursor: pointer;
+      color: $ui-base;
+    }
+    &:focus:not(:active) {
+      box-shadow: 0px 0px 0px 1px $ui-base inset;
+      outline: none;
+    }
+    &:active {
+      outline: none;
+      box-shadow: 0px 0px 0px 1px $ui-base inset;
+    }
+  }
+
+  &__btn {
+  }
+}
+
+.just-validate-error-label {
+  position: absolute;
+  top: 0px;
+  left: 23px;
+  right: 23px;
+  width: max-content;
+  @include font(9px, 10px);
+
+  color: $ui-error;
+}

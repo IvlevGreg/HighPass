@@ -1,0 +1,68 @@
+@import "vars";
+@import "mixins";
+
+.nav {
+  width: 100%;
+  &__list {
+    flex-direction: column;
+    @include media($md) {
+      justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+    }
+
+    @include media($lg) {
+      justify-content: start;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    @media (max-width: calc($md - 1px)) {
+      margin-bottom: 20px;
+    }
+    @include media($lg) {
+      margin-right: 36px;
+    }
+    @include media($xl) {
+      margin-right: 79px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $ui-base;
+    }
+
+    &:focus {
+      outline: none;
+      color: $tc-additional;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      right: -5px;
+      bottom: -2px;
+      left: -5px;
+      background-color: transparent;
+      transition: background-color .4s ease;
+    }
+    &:focus:not(:active)::before {
+      content: "";
+
+      z-index: -1;
+      background-color: $ui-primary;
+    }
+    &:active {
+      color: $ui-secondary;
+    }
+  }
+}
+
+.test {
+  margin-top: auto;
+}

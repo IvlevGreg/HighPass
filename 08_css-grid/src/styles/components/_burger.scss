@@ -1,0 +1,63 @@
+.burger {
+  position: relative;
+  width: 20px;
+  height: 18px;
+  @include media($md) {
+    display: none;
+  }
+  &__lines {
+    position: absolute;
+    left: 0;
+    display: block;
+    height: 2px;
+    width: 100%;
+
+    background-color: white;
+    transition: background-color 0.2s linear;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 2px;
+
+    display: block;
+    background-color: white;
+
+    transition: background-color 0.2s linear;
+  }
+
+  &::before {
+    top: 0;
+    width: 100%;
+  }
+
+  &::after {
+    bottom: 0;
+    width: 50%;
+  }
+}
+
+.burger:hover .burger__lines,
+.burger:hover::after,
+.burger:hover::before {
+  background-color: $ui-base;
+}
+
+.burger:active .burger__lines,
+.burger:active::after,
+.burger:active::before {
+  background-color: $ui-secondary;
+}
+
+.burger:focus .burger__lines,
+.burger:focus::after,
+.burger:focus::before {
+  background-color: $ui-primary;
+}
+
+.burger:focus {
+  outline: none;
+}

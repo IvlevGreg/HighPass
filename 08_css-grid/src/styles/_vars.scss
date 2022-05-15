@@ -1,0 +1,40 @@
+
+//background-color
+$bc-base: #202020;
+$bc-secondary: #4A4A4A;
+$bc-additional: #333333;
+$bc-primary: #CACACA;
+
+
+
+//ui-colors
+$ui-base: #FF6E30;
+$ui-primary: #BC572B;
+$ui-secondary: #CE4307;
+$ui-error: #FF3030;
+
+//text-color
+$tc-base: #CACACA;
+$tc-additional: #FFFFFF;
+$tc-primary: #202020;
+$tc-secondary: #999999;
+
+//z-index
+$index-container: 10;
+$index-hashtag: 9;
+$index-hashtag-before: -1;
+$index-logo: 9;
+$index-logo-before: -1;
+$header-container-bottom: 20;
+$header-container-top: 30;
+
+//breakpoints 
+  $sm: 502px;
+  $md: 768px;
+  $lg: 992px;
+  $xl: 1200px;
+
+  //
+  $ff-base: "Roboto", "TTFirsNeue", "Intro", sans-serif, Serif;
+  $ff-secondary:  "TTFirsNeue", "Roboto", "Intro", sans-serif, Serif;
+

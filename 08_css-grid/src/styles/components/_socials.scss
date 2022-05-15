@@ -1,0 +1,39 @@
+@import "vars";
+@import "mixins";
+
+.socials {
+  justify-content: center;
+  &__item {
+    margin-right: 21px;
+  }
+  &__item:last-child {
+    margin-right: 0;
+  }
+
+  &__link {
+  }
+
+  &__link:hover path {
+    fill: $ui-base;
+  }
+  &__link:focus path {
+    fill: $ui-base;
+    outline: none;
+  }
+  &__link:focus {
+    fill: $ui-primary;
+    outline: none;
+  }
+  &__link:active path {
+    outline: none;
+    fill: $ui-secondary;
+  }
+  &__link:active {
+    outline: none;
+  }
+
+  &__link-svg {
+    width: 30px;
+    height: 30px;
+  }
+}

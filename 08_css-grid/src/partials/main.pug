@@ -1,0 +1,96 @@
+include mixins
+include vars
+
+main.main 
+  section.works#works  
+    .container.works__container 
+      .works__main
+        picture.works__picture
+          source(media="(max-width: 502px)", srcset="images/works/works_1_sm.jpg")
+          source(media="(max-width: 768px)", srcset="images/works/works_1_md.jpg")
+          source(media="(max-width: 1200px)", srcset="images/works/works_1_lg.jpg")
+          img.works__img( alt="" src="images/works/works_1_lg.jpg")
+        .works__text-container
+          span.works__hashtag #мастеркласс
+          p.works__item-descr Мастер-класс от&nbsp;Игоря Робова
+          h3.works__item-title Неоновый фотосет&nbsp;2.0 
+          time.works__item-time(datetime="2022-07-07 20:00") 7 июля 20:00
+          a.btn-reset.btn-main.works__btn(href="#" target="_blank")  Узнать больше
+      .works__examples
+        h2.works__title Работы участников предыдущего мастер-класса
+        ul.works__list
+          each el in worksList
+            li(class="works__item "+ "works__item_" + el.number)  
+              picture.works__picture
+                source(media="(max-width: 502px)", srcset="images/works/works_" + el.number + "_sm.jpg")
+                source(media="(max-width: 768px)", srcset="images/works/works_" + el.number + "_md.jpg")
+                source(media="(max-width: 1200px)", srcset="images/works/works_" + el.number + "_lg.jpg")
+                img.works__img( alt="" src="images/works/works_" + el.number + "_xl.jpg") 
+  section.about-us#about-us 
+   .container.about-us__container 
+      .about-us__text-container 
+        h2.title.about-us__title О студии
+        h3.about-us__descr В рамках спецификации современных стандартов, интерактивные прототипы, инициированные исключительно синтетически, ограничены исключительно образом мышления. Предварительные выводы неутешительны: высокотехнологичная концепция общественного уклада требует от нас анализа соответствующих условий активизации! Следует отметить, что семантический разбор внешних противодействий  фиксирует необходимость распределения внутренних резервов и ресурсов. Безусловно, граница обучения кадров предоставляет широкие возможности для первоочередных требований. Повседневная практика показывает, что глубокий уровень погружения предполагает независимые способы реализации новых принципов формирования материально&nbsp;-&nbsp;технической и кадровой базы. Приятно, граждане, наблюдать, как явные признаки институционализации являются только методом политического участия и нарушающими общечеловеческие нормы этики.
+      .about-us__sub  
+        picture.about-us__picture
+          source(media="(max-width: 502px)", srcset="images/about-us/about-us_1_sm.jpg")
+          source(media="(max-width: 768px)", srcset="images/about-us/about-us_1_md.jpg")
+          source(media="(max-width: 1200px)", srcset="images/about-us/about-us_1_lg.jpg")
+          img.about-us__img( alt="" src="images/about-us/about-us_1_xl.jpg")
+        h3.about-us__sub-text Подписаться на рассылку
+        form.form.about-us__form#about-form
+          label.form__label 
+            input.form__input.form__input_dark#about-email(type="email", name="email", placeholder="E-mail", autocomplete="off", required)
+          button.btn-reset.btn-main.form__btn(type="submit") Отправить
+  section.projects#projects 
+    .container.projects__container 
+      h2.title.projects__title Наши проекты
+      ul.projects__list.d-flex
+          each el in projectsList
+            li(class= "projects__item " + "projects__item_" + el.number + " projects__item_" + el.type)  
+              picture.projects__picture
+                source(media="(max-width: 502px)", srcset="images/projects/projects_" + el.number + "_sm.jpg")
+                source(media="(max-width: 768px)", srcset="images/projects/projects_" + el.number + "_md.jpg")
+                source(media="(max-width: 1200px)", srcset="images/projects/projects_" + el.number + "_lg.jpg")
+                img.projects__img( alt="" src="images/projects/projects_" + el.number + "_xl.jpg") 
+              if el.descr  
+                span.projects__hashtag= el.hashtag
+                h3.descr.projects__descr= el.descr
+                time.projects__time(datetime= el.robotTime)= el.time
+              else   
+                .projects__text-container
+                  div
+                    span.projects__hashtag= el.hashtag
+                    time.projects__time.projects__time_white(datetime= el.robotTime)= el.timeIn
+                    h3.projects__item-title= el.title 
+                    p.projects__text= el.text 
+                  a.btn-reset.btn-secondary.projects__btn(href="#", target="_blank")= el.btn
+  section.contacts#contacts 
+    .container.contacts__container
+      h2.title.contacts__title Контакты
+      .contacts__content 
+        .contacts__map-content  
+          .map#map(style="width: 100%; height: 472px")
+          .contacts__text-container.contacts__text-container--active 
+            h3.contacts__name Студия “High pass”
+            address.contacts__address 107045, Москва, Даев переулок, дом 41, бизнес-центр «Даев Плаза», этаж 8, офис № 82 
+            +tel
+            +burgerClose("burger-close_contacts")
+          button.btn-reset.contacts__open-btn
+        .contacts__form-content
+          h3.contacts__name.contacts__name_dark Оставить заявку
+          p.contacts__descr Оставьте ваши данные, указав в графе “Комментарий” желаемые время и дату съемки или другого мероприятия
+          form.form.form_light#contacts-form
+            label.form__label
+              input.form__input#contacts-name(type="text", name="name", placeholder="Имя", autocomplete="off", required)
+            label.form__label
+              input.form__input#contacts-email(type="email", name="email", placeholder="E-mail", autocomplete="off", required)
+            label.form__label
+              textarea.form__textarea(name="comment", placeholder="Комментарий", autocomplete="off")
+            button.btn-reset.btn-main.form__btn(type="submit") Отправить
+            
+
+
+
+            
+            
