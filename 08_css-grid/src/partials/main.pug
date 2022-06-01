@@ -7,7 +7,7 @@ main.main
       .works__main
         picture.works__picture
           source(media="(max-width: 502px)", srcset="images/works/works_1_sm.jpg")
-          source(media="(max-width: 768px)", srcset="images/works/works_1_md.jpg")
+          source(media="(max-width: 991px)", srcset="images/works/works_1_md.jpg")
           source(media="(max-width: 1200px)", srcset="images/works/works_1_lg.jpg")
           img.works__img( alt="" src="images/works/works_1_lg.jpg")
         .works__text-container
@@ -16,16 +16,18 @@ main.main
           h3.works__item-title Неоновый фотосет&nbsp;2.0 
           time.works__item-time(datetime="2022-07-07 20:00") 7 июля 20:00
           a.btn-reset.btn-main.works__btn(href="#" target="_blank")  Узнать больше
-      .works__examples
-        h2.works__title Работы участников предыдущего мастер-класса
-        ul.works__list
-          each el in worksList
-            li(class="works__item "+ "works__item_" + el.number)  
-              picture.works__picture
-                source(media="(max-width: 502px)", srcset="images/works/works_" + el.number + "_sm.jpg")
-                source(media="(max-width: 768px)", srcset="images/works/works_" + el.number + "_md.jpg")
-                source(media="(max-width: 1200px)", srcset="images/works/works_" + el.number + "_lg.jpg")
-                img.works__img( alt="" src="images/works/works_" + el.number + "_xl.jpg") 
+      
+        
+      ul.works__list
+        each el in worksList
+          li(class="works__item "+ "works__item_" + el.number)
+            if el.title
+              h2.works__title= el.title 
+            picture.works__picture
+              source(media="(max-width: 502px)", srcset="images/works/works_" + el.number + "_sm.jpg")
+              source(media="(max-width: 991px)", srcset="images/works/works_" + el.number + "_md.jpg")
+              source(media="(max-width: 1200px)", srcset="images/works/works_" + el.number + "_lg.jpg")
+              img.works__img( alt="" src="images/works/works_" + el.number + "_xl.jpg") 
   section.about-us#about-us 
    .container.about-us__container 
       .about-us__text-container 
@@ -50,7 +52,7 @@ main.main
             li(class= "projects__item " + "projects__item_" + el.number + " projects__item_" + el.type)  
               picture.projects__picture
                 source(media="(max-width: 502px)", srcset="images/projects/projects_" + el.number + "_sm.jpg")
-                source(media="(max-width: 768px)", srcset="images/projects/projects_" + el.number + "_md.jpg")
+                source(media="(max-width: 991px)", srcset="images/projects/projects_" + el.number + "_md.jpg")
                 source(media="(max-width: 1200px)", srcset="images/projects/projects_" + el.number + "_lg.jpg")
                 img.projects__img( alt="" src="images/projects/projects_" + el.number + "_xl.jpg") 
               if el.descr  
