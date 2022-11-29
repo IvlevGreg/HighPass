@@ -1,0 +1,47 @@
+@import "vars";
+@import "mixins";
+
+.tel {
+  align-items: center;
+  color: $ui-base;
+  transition: color 0.3s ease;
+
+  @include font(14px, 18px, 500);
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus:not(:active) {
+    color: $ui-primary;
+    outline: none;
+  }
+  &:focus path {
+    fill: $ui-primary;
+  }
+  &:active {
+    color: $ui-secondary;
+    outline: none;
+  }
+  &:active path {
+    fill: $ui-secondary;
+  }
+  @include media($sm) {
+    @include font(16px, 20.64px);
+    @include media($xl) {
+      color: $tc-secondary;
+    }
+  }
+
+  &__svg {
+    width: 15px;
+    height: 15px;
+    margin-right: 2px;
+  }
+  &__svg path {
+    fill: $ui-base;
+    transition: fill 0.3s ease;
+    @include media($xl) {
+      fill: $tc-secondary;
+    }
+  }
+}

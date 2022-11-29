@@ -1,0 +1,239 @@
+@import "vars";
+@import "mixins";
+
+.projects {
+  &__container {
+    padding-top: 50px;
+    padding-bottom: 25px;
+    @include media($sm) {
+      padding-top: 68px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    @include media($sm) {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__list {
+    display: inline-grid;
+    @include media($sm) {
+      display: grid;
+      // grid-template-columns: repeat(6, 1fr);
+      // grid-template-rows: repeat(4, 1fr);
+
+      gap: 19px 30px;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas:
+        "p_1 p_1 p_2 p_2 p_3 p_3"
+        "p_4 p_4 p_4 p_4 p_4 p_4 "
+        "p_5 p_5 p_5 p_6 p_6 p_6"
+        "p_7 p_7 p_7 p_7 p_7 p_7";
+    }
+
+    @include media($lg) {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px 30px;
+
+      grid-template-areas:
+        "p_1 p_1 p_2 p_2 p_3 p_3 p_3 p_3"
+        "p_4 p_4 p_4 p_4 p_4 p_5 p_5 p_5 "
+        "p_6 p_6 p_6 p_7 p_7 p_7 p_7 p_7";
+    }
+
+    @include media($xl) {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0px 30px;
+      grid-template-areas:
+        "p_1 p_1 p_2 p_2 p_3 p_3 p_4 p_4 p_4 p_4 p_4 p_4"
+        "p_7 p_7 p_7 p_7 p_7 p_7 p_5 p_5 p_5 p_6 p_6 p_6";
+      //  1   2   3   4   5   6   7   8   9   10  11  12
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    margin-bottom: 24px;
+    @include media($sm) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item_grid {
+    display: grid;
+  }
+
+  &__item_4,
+  &__item_7 {
+    margin-bottom: 30px;
+  }
+
+  &__item_5 .projects__descr,
+  &__item_6 .projects__descr {
+    -webkit-line-clamp: 3;
+  }
+
+  &__item:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media($sm) {
+    &__item_1 .projects__descr,
+    &__item_2 .projects__descr {
+      -webkit-line-clamp: 3;
+    }
+  }
+
+  @include media($lg) {
+    &__item_1 .projects__descr,
+    &__item_2 .projects__descr {
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  &__item .projects__descr {
+    @include media($xl) {
+      -webkit-line-clamp: 3;
+    }
+  }
+  @include media($sm) {
+    &__item_1 {
+      grid-area: p_1;
+    }
+    &__item_2 {
+      grid-area: p_2;
+    }
+    &__item_3 {
+      grid-area: p_3;
+    }
+    &__item_4 {
+      grid-area: p_4;
+    }
+    &__item_5 {
+      grid-area: p_5;
+    }
+    &__item_6 {
+      grid-area: p_6;
+    }
+    &__item_7 {
+      grid-area: p_7;
+    }
+  }
+
+  &__item_grid .projects__picture,
+  &__item_grid .projects__img {
+    height: 100%;
+  }
+
+  &__picture {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__img {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+  &__text-container {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    padding: 30px 30px;
+    @include media($sm) {
+      grid-row: 1/3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 352px;
+    }
+    @include media($xl) {
+      padding-top: 20px;
+    }
+    color: $tc-additional;
+  }
+
+  &__hashtag {
+    position: absolute;
+    color: $tc-additional;
+    top: 8px;
+    right: 19px;
+    z-index: $index-hashtag;
+    @include font(12px, 14.06px);
+    @include media($sm) {
+      @include font(14px, 16.41px);
+
+      top: 14px;
+      right: 21px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: $index-hashtag-before;
+      top: -4px;
+      right: -14px;
+      left: -14px;
+      bottom: -4px;
+      background-color: $bc-additional;
+      @include media($sm) {
+        top: -7px;
+        right: -14px;
+        left: -14px;
+        bottom: -7px;
+      }
+    }
+  }
+
+  &__descr {
+    margin-top: 17px;
+    margin-bottom: 11px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__time {
+    padding-left: 17px;
+
+    color: $tc-secondary;
+    @include font(12px, 22px);
+
+    background-image: url("../images/projects/projects_calendar.svg");
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+  }
+
+  &__time_white {
+    display: block;
+    color: $tc-additional;
+    background-image: url("../images/projects/projects_calendar_white.svg");
+    margin-bottom: 6px;
+  }
+
+  &__item-title {
+    font-family: $ff-secondary;
+
+    margin-bottom: 11px;
+    @include font(24px, 24px, 700);
+    margin-bottom: 3px;
+  }
+
+  &__text {
+    @include font(14px, 18px);
+    margin-bottom: 15px;
+    @include media($sm) {
+      @include font(16px, 22px);
+    }
+  }
+
+  &__btn {
+    width: max-content;
+  }
+}

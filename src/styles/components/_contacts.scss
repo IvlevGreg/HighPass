@@ -1,0 +1,166 @@
+@import "vars";
+@import "mixins";
+
+.contacts {
+  &__container {
+    padding-top: 25px;
+    padding-bottom: 50px;
+    @include media($sm) {
+      padding-top: 42px;
+      padding-bottom: 68px;
+    }
+    @include media($lg) {
+      @include font(24px, 22px);
+      padding-bottom: 45px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 23px;
+    color: $tc-primary;
+    @include media($sm) {
+      margin-bottom: 14px;
+    }
+  }
+
+  &__content {
+    @include media($lg) {
+      display: grid;
+      grid-template-columns: 63fr 37fr;
+      gap: 30px;
+    }
+
+    @include media($xl) {
+      grid-template-columns: 67fr 33fr;
+    }
+  }
+
+  &__map-content {
+    position: relative;
+    margin-bottom: 15px;
+    @include media($sm) {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__text-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 26px 20px 14px 20px;
+    background-color: $bc-base;
+    opacity: 0;
+
+    visibility: hidden;
+    transform: translateX(-200%);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    @include media($sm) {
+      @include font(24px, 22px);
+      padding: 26px 20px 14px 30px;
+    }
+    @include media($xl) {
+      top: 0;
+      right: 430px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding-left: 60px;
+    }
+  }
+
+  &__text-container--active {
+    transform: translateX(0);
+    opacity: 0.85;
+    visibility: visible;
+  }
+
+  &__name {
+    font-family: $ff-secondary;
+
+    margin-bottom: 10px;
+    color: $tc-additional;
+    @include font(18px, 22px);
+    @include media($sm) {
+      @include font(24px, 22px);
+      margin-bottom: 5px;
+    }
+    @include media($lg) {
+      @include font(24px, 22px);
+      margin-bottom: 10px;
+    }
+  }
+
+  &__name_dark {
+    color: $tc-primary;
+    margin-bottom: 9px;
+    @include media($sm) {
+      margin-bottom: 1px;
+    }
+    @include media($lg) {
+      @include font(24px, 22px);
+      margin-bottom: 10px;
+    }
+  }
+
+  &__address {
+    margin-bottom: 13px;
+    max-width: 436px;
+    color: $tc-base;
+
+    @include font(14px, 18px);
+    @include media($sm) {
+      @include font(16px, 28px);
+      margin-bottom: 10px;
+    }
+  }
+
+  &__form-content {
+    max-width: 466px;
+  }
+
+  &__descr {
+    @include font(14px, 18px);
+    color: $tc-secondary;
+    margin-bottom: 16px;
+
+    @include media($sm) {
+      @include font(16px, 22px);
+    }
+  }
+  &__open-btn {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+    height: 150px;
+    width: 20px;
+    opacity: 0.85;
+    background-color: $bc-base;
+
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $ui-base;
+    }
+
+    &:focus:not(:active) {
+      background-color: $ui-primary;
+      outline: none;
+    }
+
+    &:active {
+      background-color: $ui-secondary;
+      outline: none;
+    }
+
+    @include media($xl) {
+      top: 0;
+      height: auto;
+    }
+  }
+}
+
+.contacts__text-container--active + .contacts__open-btn {
+  display: none;
+}

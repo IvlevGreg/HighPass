@@ -1,0 +1,17 @@
+include mixins
+include vars
+
+footer.footer 
+  .container.footer__container.footer__container_top
+    div.footer__descr-container.d-none  
+      p.descr.footer__descr.footer__descr_mb Которая из моих фотографий самая любимая? Та, которую я собираюсь снять завтра.
+      p.descr.footer__descr.footer__descr_dark.footer__descr_mb © Имоджен Каннингем
+    .footer__socials-container
+      p.descr.footer__descr  Больше интересного:
+      +socials("footer__socials")
+    div.footer__logo-container
+      +logo("footer__logo")
+      p.footer__ps Фотостудия High pass® 2018-2020
+  //- .container.footer__container.footer__container_bottom  
+  //-    +logo("footer__logo")
+  //-     p.footer__ps Фотостудия High pass® 2018-2020    

@@ -1,0 +1,89 @@
+@import "vars";
+@import "mixins";
+
+.footer {
+  width: 100%;
+
+  background-color: $bc-base;
+  color: $tc-base;
+
+  &__container {
+    @include media($sm) {
+      padding-top: 23px;
+      padding-bottom: 23px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @include media($xl) {
+      padding-top: 23px;
+      padding-bottom: 11px;
+    }
+  }
+  &__socials-container {
+    @media (max-width: calc($sm - 1px)) {
+      padding: 29px 0;
+      text-align: center;
+    }
+  }
+
+  &__descr-container {
+    @include media($lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      max-width: 361px;
+      margin-left: -100px;
+    }
+  }
+
+  &__logo-container {
+    @media (max-width: calc($sm - 1px)) {
+      position: relative;
+      z-index: $index-logo;
+      padding: 15px 0;
+      text-align: center;
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: $index-logo-before;
+        right: -21px;
+        left: -21px;
+        top: 0;
+        bottom: 0;
+        background-color: $bc-secondary;
+      }
+    }
+    @include media($sm) {
+      order: -1;
+    }
+  }
+
+  &__descr {
+    margin-bottom: 8px;
+  }
+
+  &__descr_mb {
+    @include media($xl) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__descr_dark {
+  }
+
+  &__socials {
+  }
+
+  &__logo {
+    margin-bottom: 4px;
+  }
+
+  &__ps {
+    font-family: $ff-secondary;
+    @include font(10px, 12.9px);
+    @include media($sm) {
+      @include font(14px, 18px);
+    }
+  }
+}

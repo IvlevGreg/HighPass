@@ -1,0 +1,98 @@
+@import "vars";
+@import "mixins";
+
+.header {
+  width: 100%;
+
+  color: $tc-additional;
+
+  &__content-top {
+    background-color: $bc-base;
+
+  }
+
+  &__content-bottom {
+  }
+  &__container {
+  }
+
+  &__search {
+    @include media($xl) {
+      display: none;
+    }
+  }
+
+  &__nav_top {
+  }
+
+  &__container-top {
+    padding-top: 25px;
+    padding-bottom: 22px;
+    justify-content: space-between;
+    z-index: $header-container-top;
+  }
+  &__container-bottom {
+    padding-top: 14px;
+    padding-bottom: 13px;
+    background-color: $bc-secondary;
+    z-index: $header-container-bottom;
+    @include media($lg) {
+      display: none;
+    }
+  }
+
+  &__nav_bottom {
+    @media (max-width: calc($md - 1px)) {
+      position: absolute;
+      padding: 14px 21px 35px 21px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-200%);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    }
+  }
+
+  &__nav_bottom--active {
+    position: fixed;
+    height: calc(100vh - 70px);
+    top: 70px;
+    left: 0;
+    right: 0;
+    overflow: auto;
+
+    background-color: $bc-secondary;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__logo {
+    @include media($lg) {
+      margin-right: 82px;
+    }
+    @include media($xl) {
+      margin-right: 140px;
+    }
+  }
+  &__nav {
+    @include media($lg) {
+      display: flex;
+    }
+  }
+
+  &__socials {
+    display: none;
+    @include media($xl) {
+      display: flex;
+    }
+  }
+
+  &__tel {
+    @include media($md) {
+      display: none;
+    }
+  }
+}

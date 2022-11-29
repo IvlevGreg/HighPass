@@ -1,0 +1,56 @@
+@import "vars";
+@import "mixins";
+
+.burger-close {
+  circle {
+    transition: fill .3s ease;
+  }
+  svg{
+    transition: transform .3s ease;
+ 
+  }
+  &:hover circle {
+    fill: $ui-base;
+  }
+  
+  &:focus:not(:active) circle {
+    fill: $ui-primary;
+    outline: none;
+  }
+  &:focus:not(:active) {
+    outline: none;
+  }
+  &:active circle {
+    fill: $ui-secondary;
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+  &:active svg {
+    transform: rotate(45deg);
+  }
+}
+
+.burger-close_menu {
+  margin-bottom: 20px;
+  @include media($md) {
+    display: none;
+  }
+}
+
+.burger-close_search {
+  position: absolute;
+  right: 22px;
+  top: 25px;
+  @include media($md) {
+    right: 10px;
+    top: 0;
+  }
+}
+
+.burger-close_contacts {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
