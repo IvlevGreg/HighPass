@@ -1,4 +1,4 @@
-const { src, dest, series, watch } = require("gulp");
+const { src, dest, series, watch, task } = require("gulp");
 const concat = require("gulp-concat");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass")(require("sass"));
@@ -13,6 +13,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const del = require("del");
 let uglify = require("gulp-uglify-es").default;
 const browserSync = require("browser-sync").create();
+const ghPages = require("gulp-gh-pages");
 
 const clean = () => {
   return del(["dist"]);
@@ -101,8 +102,7 @@ const pugTask = () => {
 const pugTaskBuild = () => {
   return src("src/*.pug")
     .pipe(pug({ pretty: false }))
-    .pipe(dest("dist"))
-    .pipe(browserSync.stream());
+    .pipe(dest("dist"));
 };
 
 const svgSprites = () => {
@@ -181,6 +181,10 @@ const watchFiles = () => {
   });
 };
 
+const deploy = () => {
+  return gulp.src("./dist/**/*").pipe(ghPages());
+};
+
 watch("src/**/*.pug", pugTask);
 watch("src/**/*.scss", styles);
 watch("src/images/svg/**/*.svg", svgSprites);
@@ -214,3 +218,18 @@ exports.build = series(
   images,
   svgSprites
 );
+
+// exports.deploy = series(
+//   clean,
+//   resources,
+//   fonts,
+//   pugTaskBuild,
+//   scriptsBuild,
+//   stylesBuild,
+//   images,
+//   svgSprites
+// );
+
+task("deploy", function () {
+  return src("./dist/**/*").pipe(ghPages());
+});

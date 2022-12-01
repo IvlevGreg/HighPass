@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://ivlevgreg.github.io/HighPass",
   "scripts": {
-    "predeploy": "gulp build",
+    "predeploy": "",
     "deploy": "gh-pages -d build",
     "build": "gulp build",
     "dev": "gulp"
@@ -18,13 +18,13 @@
     "babel-loader": "^8.2.5",
     "browser-sync": "^2.27.9",
     "del": "^6.0.0",
-    "gh-pages": "^4.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",
     "gulp-concat": "^2.6.1",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-htmlmin": "^5.0.1",
     "gulp-image": "^6.3.1",
     "gulp-imagemin": "^7.1.0",
