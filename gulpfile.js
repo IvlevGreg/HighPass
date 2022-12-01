@@ -82,17 +82,17 @@ const stylesBuild = () => {
 
 const pugTask = () => {
   return src("src/*.pug")
-  .pipe(
-    plumber({
-      errorHandler: function (err) {
-        notify.onError({
-          title: "PUG Error",
-          message: "Error: <%= error.message %>",
-        })(err);
-        this.emit("end");
-      },
-    })
-  )
+    .pipe(
+      plumber({
+        errorHandler: function (err) {
+          notify.onError({
+            title: "PUG Error",
+            message: "Error: <%= error.message %>",
+          })(err);
+          this.emit("end");
+        },
+      })
+    )
     .pipe(pug({ pretty: true }))
     .pipe(dest("dist"))
     .pipe(browserSync.stream());
@@ -148,7 +148,6 @@ const scriptsBuild = () => {
 
 const fonts = () => {
   return src(["src/fonts/**"])
-    
     .pipe(dest("dist/fonts"))
     .pipe(browserSync.stream());
 };
@@ -191,7 +190,7 @@ watch("src/images/**/*.png", images);
 watch("src/images/**/*.svg", images);
 watch("src/js/**/*.js", scripts);
 watch("src/resources/**", resources);
-watch("src/fonts/**", fonts)
+watch("src/fonts/**", fonts);
 
 exports.default = series(
   clean,
@@ -213,6 +212,5 @@ exports.build = series(
   scriptsBuild,
   stylesBuild,
   images,
-  svgSprites,
-  watchFiles
+  svgSprites
 );
