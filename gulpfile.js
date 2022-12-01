@@ -1,4 +1,4 @@
-const { src, dest, series, watch } = require("gulp");
+const { src, dest, series, watch, task } = require("gulp");
 const concat = require("gulp-concat");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass")(require("sass"));
@@ -13,6 +13,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const del = require("del");
 let uglify = require("gulp-uglify-es").default;
 const browserSync = require("browser-sync").create();
+const ghPages = require("gulp-gh-pages");
 
 const clean = () => {
   return del(["dist"]);
@@ -82,17 +83,17 @@ const stylesBuild = () => {
 
 const pugTask = () => {
   return src("src/*.pug")
-  .pipe(
-    plumber({
-      errorHandler: function (err) {
-        notify.onError({
-          title: "PUG Error",
-          message: "Error: <%= error.message %>",
-        })(err);
-        this.emit("end");
-      },
-    })
-  )
+    .pipe(
+      plumber({
+        errorHandler: function (err) {
+          notify.onError({
+            title: "PUG Error",
+            message: "Error: <%= error.message %>",
+          })(err);
+          this.emit("end");
+        },
+      })
+    )
     .pipe(pug({ pretty: true }))
     .pipe(dest("dist"))
     .pipe(browserSync.stream());
@@ -101,8 +102,7 @@ const pugTask = () => {
 const pugTaskBuild = () => {
   return src("src/*.pug")
     .pipe(pug({ pretty: false }))
-    .pipe(dest("dist"))
-    .pipe(browserSync.stream());
+    .pipe(dest("dist"));
 };
 
 const svgSprites = () => {
@@ -148,7 +148,6 @@ const scriptsBuild = () => {
 
 const fonts = () => {
   return src(["src/fonts/**"])
-    
     .pipe(dest("dist/fonts"))
     .pipe(browserSync.stream());
 };
@@ -182,6 +181,10 @@ const watchFiles = () => {
   });
 };
 
+const deploy = () => {
+  return gulp.src("./dist/**/*").pipe(ghPages());
+};
+
 watch("src/**/*.pug", pugTask);
 watch("src/**/*.scss", styles);
 watch("src/images/svg/**/*.svg", svgSprites);
@@ -191,7 +194,7 @@ watch("src/images/**/*.png", images);
 watch("src/images/**/*.svg", images);
 watch("src/js/**/*.js", scripts);
 watch("src/resources/**", resources);
-watch("src/fonts/**", fonts)
+watch("src/fonts/**", fonts);
 
 exports.default = series(
   clean,
@@ -213,6 +216,20 @@ exports.build = series(
   scriptsBuild,
   stylesBuild,
   images,
-  svgSprites,
-  watchFiles
+  svgSprites
 );
+
+// exports.deploy = series(
+//   clean,
+//   resources,
+//   fonts,
+//   pugTaskBuild,
+//   scriptsBuild,
+//   stylesBuild,
+//   images,
+//   svgSprites
+// );
+
+task("deploy", function () {
+  return src("./dist/**/*").pipe(ghPages());
+});
