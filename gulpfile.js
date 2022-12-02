@@ -218,18 +218,3 @@ exports.build = series(
   images,
   svgSprites
 );
-
-// exports.deploy = series(
-//   clean,
-//   resources,
-//   fonts,
-//   pugTaskBuild,
-//   scriptsBuild,
-//   stylesBuild,
-//   images,
-//   svgSprites
-// );
-
-task("deploy", function () {
-  return src("./dist/**/*").pipe(ghPages());
-});
