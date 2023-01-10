@@ -15,7 +15,6 @@
 - Implemented adaptive web design, cross-browser development, responsive images
 - Utilized Yandex Maps API for interactive map implementation
 - Used Grid layout 
-- Implemented sliders with Swiper.js and adaptive Tooltips with Tippy.js
 - Used Gulp for transpile and minify JavaScript, PUG and Sass
 
 
